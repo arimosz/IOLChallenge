@@ -1,0 +1,13 @@
+C:\Users\Ariel\Desktop\CodingChallenge-master\CodingChallenge.Data\bin\Debug\CodingChallenge.Data.dll
+C:\Users\Ariel\Desktop\CodingChallenge-master\CodingChallenge.Data\bin\Debug\CodingChallenge.Data.pdb
+C:\Users\Ariel\Desktop\CodingChallenge-master\CodingChallenge.Data\bin\Debug\Castle.Core.dll
+C:\Users\Ariel\Desktop\CodingChallenge-master\CodingChallenge.Data\bin\Debug\Moq.dll
+C:\Users\Ariel\Desktop\CodingChallenge-master\CodingChallenge.Data\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Ariel\Desktop\CodingChallenge-master\CodingChallenge.Data\bin\Debug\Castle.Core.xml
+C:\Users\Ariel\Desktop\CodingChallenge-master\CodingChallenge.Data\bin\Debug\Moq.xml
+C:\Users\Ariel\Desktop\CodingChallenge-master\CodingChallenge.Data\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Ariel\Desktop\CodingChallenge-master\CodingChallenge.Data\obj\Debug\CodingChallenge.Data.csproj.CoreCompileInputs.cache
+C:\Users\Ariel\Desktop\CodingChallenge-master\CodingChallenge.Data\obj\Debug\CodingChallenge.Data.csproj.CopyComplete
+C:\Users\Ariel\Desktop\CodingChallenge-master\CodingChallenge.Data\obj\Debug\CodingChallenge.Data.dll
+C:\Users\Ariel\Desktop\CodingChallenge-master\CodingChallenge.Data\obj\Debug\CodingChallenge.Data.pdb
+C:\Users\Ariel\Desktop\CodingChallenge-master\CodingChallenge.Data\obj\Debug\CodingChallenge.Data.csprojAssemblyReference.cache
