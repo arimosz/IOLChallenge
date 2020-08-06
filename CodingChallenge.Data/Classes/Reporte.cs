@@ -12,96 +12,38 @@ namespace CodingChallenge.Data.Classes
         public static string Imprimir(List<FormaGeometrica> listFormas, Idioma idioma) 
         {
             var reporte = new StringBuilder();
-            
-            var contFormas = 0;
-            var perimetroTotal = 0m;
-            var areaTotal = 0m;
-
-            var numeroCuadrados = 0;
-            var numeroTriangulos = 0;
-            var numeroCirculos = 0;
-            var numeroRectangulos = 0;
-            var numeroTrapecios = 0;
-
-            var areaCuadrados = 0m;
-            var areaTriangulos = 0m;
-            var areaCirculos = 0m;            
-            var areaRectangulos = 0m;
-            var areaTrapecios = 0m;
-
-            var perimetroCuadrados = 0m;
-            var perimetroTriangulos = 0m;
-            var perimetroCirculos = 0m;
-            var perimetroRectangulos = 0m;
-            var perimetroTrapecios = 0m;
 
             if (listFormas.Any())
             {
+                int totalFormas = 0;
+
                 reporte.Append("<h1>" + idioma.ImprimirEncabezado() + "<h1>");
 
-                foreach (FormaGeometrica formaGeometrica in listFormas) 
+                foreach (FormaGeometrica formaGeometrica in listFormas)
                 {
-
-                    switch (formaGeometrica.tipo) 
-                    {
-                        case FORMAGEOMETRICA.CUADRADO:
-                            numeroCuadrados++;
-                            areaCuadrados += formaGeometrica.area;
-                            perimetroCuadrados += formaGeometrica.perimetro;
-                            break;
-
-                        case FORMAGEOMETRICA.TRIANGULO:
-                            numeroTriangulos++;
-                            areaTriangulos += formaGeometrica.area;
-                            perimetroTriangulos += formaGeometrica.perimetro;
-                            break;
-
-                        case FORMAGEOMETRICA.CIRCULO:
-                            numeroCirculos++;
-                            areaCirculos += formaGeometrica.area;
-                            perimetroCirculos += formaGeometrica.perimetro;
-                            break;
-
-                        case FORMAGEOMETRICA.RECTANGULO:
-                            numeroRectangulos++;
-                            areaRectangulos += formaGeometrica.area;
-                            perimetroRectangulos += formaGeometrica.perimetro;
-                            break;
-
-                        case FORMAGEOMETRICA.TRAPECIO:
-                            numeroTrapecios++;
-                            areaTrapecios += formaGeometrica.area;
-                            perimetroTrapecios += formaGeometrica.perimetro;
-                            break;
-                    }
-
-                    contFormas++;
-                    areaTotal += formaGeometrica.area;
-                    perimetroTotal += formaGeometrica.perimetro;
+                    formaGeometrica.AsignarNombresAForma(idioma);
+                    totalFormas++;
                 }
 
-                if (numeroCuadrados > 0)
-                    reporte.Append($"{numeroCuadrados} {idioma.ImprimirNombreCuadrado(numeroCuadrados)} | {idioma.ImprimirTituloArea()} {areaCuadrados:#.##} | {idioma.ImprimirTituloPerimetro()} {perimetroCuadrados:#.##} <br/>");                    
+                var r = listFormas.GroupBy(t => t.tipo)
+                            .Select(t => new
+                            {
+                                FormaGeo = t.Key,
+                                Count = t.Count(),
+                                Area = t.Sum(ta => ta.area),
+                                Perimetro = t.Sum(ta => ta.perimetro),
+                                NombreSing = t.First().nombreFormaSingular,
+                                NombrePlural = t.First().nombreFormaPlural
+                            }).ToList();
 
-                if (numeroTriangulos > 0)
-                    reporte.Append($"{numeroTriangulos} {idioma.ImprimirNombreTriangulo(numeroTriangulos)} | {idioma.ImprimirTituloArea()} {areaTriangulos:#.##} | {idioma.ImprimirTituloPerimetro()} {perimetroTriangulos:#.##} <br/>");                    
+                r.ForEach(row => reporte.Append($"{row.Count} {(row.Count > 1 ? row.NombrePlural : row.NombreSing) } | {idioma.ImprimirTituloArea()} {row.Area:#.##} | {idioma.ImprimirTituloPerimetro()} {row.Perimetro:#.##} <br/>"));
 
-                if (numeroCirculos > 0)
-                    reporte.Append($"{numeroCirculos} {idioma.ImprimirNombreCirculo(numeroCirculos)} | {idioma.ImprimirTituloArea()} {areaCirculos:#.##} | {idioma.ImprimirTituloPerimetro()} {perimetroCirculos:#.##} <br/>");
-
-                if (numeroRectangulos > 0)
-                    reporte.Append($"{numeroRectangulos} {idioma.ImprimirNombreRectangulo(numeroRectangulos)} | {idioma.ImprimirTituloArea()} {areaRectangulos:#.##} | {idioma.ImprimirTituloPerimetro()} {perimetroRectangulos:#.##} <br/>");
-
-                if (numeroTrapecios > 0)
-                    reporte.Append($"{numeroTrapecios} {idioma.ImprimirNombreTrapecio(numeroTrapecios)} | {idioma.ImprimirTituloArea()} {areaTrapecios:#.##} | {idioma.ImprimirTituloPerimetro()} {perimetroTrapecios:#.##} <br/>");
-
-                reporte.Append($"{idioma.ImprimirTituloTotal()} : {contFormas}  {idioma.ImprimirTituloForma(contFormas)} | {idioma.ImprimirTituloArea()} {areaTotal:#.##} | {idioma.ImprimirTituloPerimetro()} {perimetroTotal:#.##}");
+                reporte.Append($"{idioma.ImprimirTituloTotal()} : {totalFormas}  {idioma.ImprimirTituloForma(totalFormas)} | {idioma.ImprimirTituloArea()} {listFormas.Sum(d => d.area):#.##} | {idioma.ImprimirTituloPerimetro()} {listFormas.Sum(d => d.perimetro):#.##}");
             }
-            else             
+            else
                 reporte.Append("<h1>" + idioma.ImprimirEncabezadoVacio() + "<h1>");
-            
-        
+                                                       
             return reporte.ToString();
         }
-    }
+    }    
 }

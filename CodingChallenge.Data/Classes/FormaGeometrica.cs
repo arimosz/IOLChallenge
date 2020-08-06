@@ -19,9 +19,13 @@ namespace CodingChallenge.Data.Classes
     {        
         public FORMAGEOMETRICA tipo;
 
+        public string nombreFormaSingular;
+
+        public string nombreFormaPlural;
+
         public decimal area;
 
-        public decimal perimetro;
+        public decimal perimetro;        
 
         public abstract void SetPropiedades();              
 
@@ -29,7 +33,8 @@ namespace CodingChallenge.Data.Classes
 
         public abstract decimal CalcularPerimetro();
 
-        public abstract FORMAGEOMETRICA GetFormaGeometrica();        
+        public abstract FORMAGEOMETRICA GetFormaGeometrica();
 
+        public abstract void AsignarNombresAForma(Idioma idioma);         
     }
 }

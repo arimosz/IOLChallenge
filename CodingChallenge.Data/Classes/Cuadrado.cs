@@ -37,6 +37,12 @@ namespace CodingChallenge.Data.Classes
         public override decimal CalcularPerimetro()
         {
             return lado * 4;
-        }        
+        }
+
+        public override void AsignarNombresAForma(Idioma idioma)
+        {
+            nombreFormaSingular = idioma.ImprimirNombreCuadrado(1);
+            nombreFormaPlural = idioma.ImprimirNombreCuadrado(2);
+        }
     }
 }

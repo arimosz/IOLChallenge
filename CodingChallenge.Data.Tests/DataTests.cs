@@ -65,8 +65,8 @@ namespace CodingChallenge.Data.Tests
 
             var resumen = Reporte.Imprimir(formas, new IdiomaIngles());
 
-            Assert.AreEqual(
-                "<h1>Shapes report<h1>2 Squares | Area 29 | Perimeter 28 <br/>3 Triangles | Area 49,64 | Perimeter 51,6 <br/>2 Circles | Area 13,01 | Perimeter 18,06 <br/>Total : 7  Shapes | Area 91,65 | Perimeter 97,66",                 
+            Assert.AreEqual(                
+                 "<h1>Shapes report<h1>2 Squares | Area 29 | Perimeter 28 <br/>2 Circles | Area 13,01 | Perimeter 18,06 <br/>3 Triangles | Area 49,64 | Perimeter 51,6 <br/>Total : 7  Shapes | Area 91,65 | Perimeter 97,66",
                 resumen);
         }
 
@@ -87,7 +87,7 @@ namespace CodingChallenge.Data.Tests
             var resumen = Reporte.Imprimir(formas, new IdiomaCastellano());
 
             Assert.AreEqual(
-                "<h1>Reporte de Formas<h1>2 Cuadrados | Area 29 | Perimetro 28 <br/>3 Triángulos | Area 49,64 | Perimetro 51,6 <br/>2 Círculos | Area 13,01 | Perimetro 18,06 <br/>Total : 7  Formas | Area 91,65 | Perimetro 97,66",
+                "<h1>Reporte de Formas<h1>2 Cuadrados | Area 29 | Perimetro 28 <br/>2 Círculos | Area 13,01 | Perimetro 18,06 <br/>3 Triángulos | Area 49,64 | Perimetro 51,6 <br/>Total : 7  Formas | Area 91,65 | Perimetro 97,66",
                 resumen);
         }
 
@@ -123,8 +123,8 @@ namespace CodingChallenge.Data.Tests
 
             var resumen = Reporte.Imprimir(formas, new IdiomaFrances());
 
-            Assert.AreEqual(
-                "<h1>Rapport sur les formes<h1>1 Carré | surface 25 | Périmètre 20 <br/>2 Triangles | surface 14,57 | Périmètre 24,6 <br/>1 Cercle | surface 7,07 | Périmètre 9,42 <br/>3 Rectangles | surface 30 | Périmètre 42 <br/>1 Trapèze | surface 3 | Périmètre 14 <br/>Total : 8  Formes | surface 79,64 | Périmètre 110,02",
+            Assert.AreEqual(                
+                 "<h1>Rapport sur les formes<h1>3 Rectangles | surface 30 | Périmètre 42 <br/>1 Carré | surface 25 | Périmètre 20 <br/>1 Cercle | surface 7,07 | Périmètre 9,42 <br/>2 Triangles | surface 14,57 | Périmètre 24,6 <br/>1 Trapèze | surface 3 | Périmètre 14 <br/>Total : 8  Formes | surface 79,64 | Périmètre 110,02",
                 resumen);
         }
 

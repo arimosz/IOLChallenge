@@ -39,6 +39,10 @@ namespace CodingChallenge.Data.Classes
             return (decimal)Math.PI * lado;
         }
 
-        
+        public override void AsignarNombresAForma(Idioma idioma)
+        {
+            nombreFormaSingular = idioma.ImprimirNombreCirculo(1);
+            nombreFormaPlural = idioma.ImprimirNombreCirculo(2);
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace CodingChallenge.Data.Classes
     public class Rectangulo : FormaGeometrica
     {
         public decimal lado1;
-        public decimal lado2;
+        public decimal lado2;        
 
         public override FORMAGEOMETRICA GetFormaGeometrica()
         {
@@ -39,6 +39,12 @@ namespace CodingChallenge.Data.Classes
         public override decimal CalcularPerimetro()
         {
             return lado1 * 2 + lado2 * 2;
+        }
+
+        public override void AsignarNombresAForma(Idioma idioma)
+        {
+            nombreFormaSingular = idioma.ImprimirNombreRectangulo(1);
+            nombreFormaPlural = idioma.ImprimirNombreRectangulo(2);
         }
     }
 }

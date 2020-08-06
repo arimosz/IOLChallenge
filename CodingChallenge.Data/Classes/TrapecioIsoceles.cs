@@ -44,5 +44,11 @@ namespace CodingChallenge.Data.Classes
         {
             return ladoMayor + ladoMayor + diagonal * 2;
         }
+
+        public override void AsignarNombresAForma(Idioma idioma)
+        {
+            nombreFormaSingular = idioma.ImprimirNombreTrapecio(1);
+            nombreFormaPlural = idioma.ImprimirNombreTrapecio(2);
+        }
     }
 }
